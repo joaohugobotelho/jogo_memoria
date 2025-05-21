@@ -1,5 +1,6 @@
-body {
-    background-color: black;
-    color: white;
-    font-family: 'Courier New', Courier, monospace;
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+    height: 300px;
 }
