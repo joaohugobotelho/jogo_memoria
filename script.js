@@ -53,4 +53,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
     ]
+
+
+    
+    const grid = document.querySelector('.grid')
+
+    // criando a tela
+
+    function createBoard() {
+        for()
+    } 
 })
