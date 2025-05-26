@@ -61,6 +61,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // criando a tela
 
     function createBoard() {
-        for()
+        for(let i=0; i < cardArray.length;i++) {
+            var card = document.createElement('img')
+            card.setAttribute('src', 'images/card.png')
+            card.setAttribute('data-id', i)
+           // card.addEventListener('click', flipCard)
+            grid.appendChild(card)
+        }
     } 
+
+    createBoard();
 })
