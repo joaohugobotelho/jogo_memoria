@@ -58,6 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const grid = document.querySelector('.grid')
 
+    const rwsultDisplay = document.querySelector('#result')
+    var cardsChosen = []
+    var cardsChosenId = []
+    var pares = []
+
     // criando a tela
 
     function createBoard() {
@@ -65,10 +70,20 @@ document.addEventListener('DOMContentLoaded', () => {
             var card = document.createElement('img')
             card.setAttribute('src', 'images/card.png')
             card.setAttribute('data-id', i)
-           // card.addEventListener('click', flipCard)
+            card.addEventListener('click', flipCard)
             grid.appendChild(card)
         }
     } 
+
+
+    // virando cards
+
+   function flipCard() {
+    var cardId = this.getAttribute('data-id')
+    cardsChosen.push(cardArray[cardId].name)
+    cardsChosenId.push(cardId)
+    this.setAttribute('src', cardArray[cardId].img)
+   }
 
     createBoard();
 })
