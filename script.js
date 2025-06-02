@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const grid = document.querySelector('.grid')
 
-    const rwsultDisplay = document.querySelector('#result')
+    const resultDisplay = document.querySelector('#result')
     var cardsChosen = []
     var cardsChosenId = []
     var pares = []
@@ -79,14 +79,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // conferindo pares
 
-    function checkForMatch() {
+    function checkforMatch() {
         var cards = document.querySelectorAll('img')
         const optionOneId = cardsChosenId[0]
         const optionTwoId = cardsChosenId[1]
 
         // clicar duas vezes no mesmo card
         if(optionOneId == optionTwoId){
-             
+             cards[optionOneId].setAttribute('src', 'images/card.png')
+             cards[optionTwoId].setAttribute('src', 'images/card.png')
+             alert("Você clicou na mesma imagem!")
+        }
+
+        // formando um par
+        else if(cardsChosen[0] == cardsChosen[1]) {
+            alert("Você conseguiu um par!")
+            cards[optionOneId].setAttribute('src', 'images/white.png')
+            cards[optionTwoId].setAttribute('src', 'images/white.png')
+            cards[optionOneId].removeEventListener('click', flipCard)
+            cards[optionTwoId].removeEventListener('click', flipCard)
+            pares.push(cardsChosen)
+        } // nao formou par
+        else {
+            cards[optionOneId].setAttribute('src', 'images/card.png')
+            cards[optionTwoId].setAttribute('src', 'images/card.png')
+            alert("Jogue Novamente!")
+        }
+        cardsChosen = []
+        cardsChosenId = []
+        resultDisplay.textContent = pares.length 
+
+        if(pares.length == cardArray.length / 2) {
+            resultDisplay.textContent = ("Parbéns! Você encontrou todos os pares")
         }
     }
 
@@ -99,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cardsChosenId.push(cardId)
     this.setAttribute('src', cardArray[cardId].img)
     if(cardsChosen.length == 2) {
-        setTimeout(checkForMatch, 500)
+        setTimeout(checkforMatch, 500)
     }
    }
 
