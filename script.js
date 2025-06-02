@@ -77,6 +77,20 @@ document.addEventListener('DOMContentLoaded', () => {
     } 
 
 
+    // conferindo pares
+
+    function checkForMatch() {
+        var cards = document.querySelectorAll('img')
+        const optionOneId = cardsChosenId[0]
+        const optionTwoId = cardsChosenId[1]
+
+        // clicar duas vezes no mesmo card
+        if(optionOneId == optionTwoId){
+             
+        }
+    }
+
+
     // virando cards
 
    function flipCard() {
