@@ -91,7 +91,15 @@ document.addEventListener('DOMContentLoaded', () => {
              alert("Você clicou na mesma imagem!")
         }
 
-        
+        // formando um par
+        else if(cardsChosen[0] == cardsChosen[1]) {
+            alert("Você conseguiu um par!")
+            cards[optionOneId].setAttribute('src', 'images/white.png')
+            cards[optionTwoId].setAttribute('src', 'images/white.png')
+            cards[optionOneId].removeEventListener('click', flipCard)
+            cards[optionTwoId].removeEventListener('click', flipCard)
+            pares.push(cardsChosen)
+        } // nao formou par
         else {
             cards[optionOneId].setAttribute('src', 'images/card.png')
             cards[optionTwoId].setAttribute('src', 'images/card.png')
